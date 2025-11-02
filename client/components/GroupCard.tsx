@@ -81,6 +81,26 @@ export function GroupCard({
           {subject}
         </div>
 
+        {/* Progress Bar (Students Only) */}
+        {showProgress && (
+          <div className="mb-3">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-xs font-medium text-foreground">
+                Tu Progreso
+              </span>
+              <span className={`text-xs font-bold ${getProgressTextColor(progress)}`}>
+                {progress}%
+              </span>
+            </div>
+            <div className="h-2 bg-muted rounded-full overflow-hidden">
+              <div
+                className={`h-full ${getProgressColor(progress)} rounded-full transition-all duration-300`}
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+          </div>
+        )}
+
         {/* Stats */}
         <div className="flex items-center justify-between pt-3 border-t border-border">
           <div className="flex items-center gap-4 text-xs text-muted-foreground">
