@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Header } from '@/components/Header';
 import { Sidebar } from '@/components/Sidebar';
-import { RightSidebar } from '@/components/RightSidebar';
 import { GroupsView } from '@/components/sections/GroupsView';
+import { PublicGroupsView } from '@/components/sections/PublicGroupsView';
 import { PublicForumsView } from '@/components/sections/PublicForumsView';
 import { CreateGroupView } from '@/components/sections/CreateGroupView';
 import { GroupDetailView } from '@/components/sections/GroupDetailView';
