@@ -5,6 +5,7 @@ import { RightSidebar } from '@/components/RightSidebar';
 import { GroupsView } from '@/components/sections/GroupsView';
 import { PublicForumsView } from '@/components/sections/PublicForumsView';
 import { CreateGroupView } from '@/components/sections/CreateGroupView';
+import { GroupDetailView } from '@/components/sections/GroupDetailView';
 import { Users, AlertCircle, FileText, BarChart3 } from 'lucide-react';
 
 interface ToastNotification {
@@ -16,6 +17,7 @@ interface ToastNotification {
 export default function Index() {
   const [userRole, setUserRole] = useState<'teacher' | 'student'>('student');
   const [activeSection, setActiveSection] = useState('groups');
+  const [selectedGroupId, setSelectedGroupId] = useState<string | null>(null);
   const [toasts, setToasts] = useState<ToastNotification[]>([]);
 
   const handleCreateGroup = () => {
