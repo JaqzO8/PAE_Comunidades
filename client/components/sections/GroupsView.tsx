@@ -33,6 +33,7 @@ export function GroupsView({
       visibility: 'private',
       isOwner: true,
       coverColor: 'primary',
+      progress: 85,
     },
     {
       id: '2',
@@ -44,6 +45,7 @@ export function GroupsView({
       fileCount: 12,
       visibility: 'public',
       coverColor: 'accent',
+      progress: 62,
     },
     {
       id: '3',
@@ -55,6 +57,7 @@ export function GroupsView({
       fileCount: 9,
       visibility: 'private',
       coverColor: 'blue',
+      progress: 45,
     },
   ],
   userRole = 'student',
@@ -64,9 +67,9 @@ export function GroupsView({
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-foreground mb-2">Mis Grupos</h1>
+        <h1 className="text-3xl font-bold text-foreground mb-2">Mis Comunidades</h1>
         <p className="text-muted-foreground">
-          Gestiona tus grupos de estudio colaborativo
+          Gestiona tus comunidades de estudio colaborativo
         </p>
       </div>
 
