@@ -50,6 +50,45 @@ export function CreateGroupView({ onGroupCreated }: CreateGroupViewProps) {
     }));
   };
 
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const imageData = event.target?.result as string;
+        setImagePreview(imageData);
+        setFormData((prev) => ({
+          ...prev,
+          image: imageData,
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const file = e.dataTransfer.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const imageData = event.target?.result as string;
+        setImagePreview(imageData);
+        setFormData((prev) => ({
+          ...prev,
+          image: imageData,
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.description || !formData.subject) {
@@ -57,15 +96,18 @@ export function CreateGroupView({ onGroupCreated }: CreateGroupViewProps) {
       return;
     }
     onGroupCreated?.(formData);
-    alert('✓ Grupo creado exitosamente!');
+    alert('✓ ¡Comunidad creada exitosamente!');
     setFormData({
       name: '',
       description: '',
       subject: '',
+      institution: '',
       visibility: 'private',
       invitationIds: [],
       inviteMessage: '',
+      image: null,
     });
+    setImagePreview(null);
   };
 
   return (
