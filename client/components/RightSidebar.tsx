@@ -1,10 +1,10 @@
-import { Clock, Star, AlertCircle, Check, X } from 'lucide-react';
+import { Clock, Star, AlertCircle, Check, X } from "lucide-react";
 
 interface Invitation {
   id: string;
   fromName: string;
   groupName: string;
-  status: 'pending' | 'accepted' | 'rejected';
+  status: "pending" | "accepted" | "rejected";
 }
 
 interface Resource {
@@ -18,7 +18,7 @@ interface Activity {
   id: string;
   message: string;
   time: string;
-  type: 'comment' | 'upload' | 'join';
+  type: "comment" | "upload" | "join";
 }
 
 interface RightSidebarProps {
@@ -30,27 +30,47 @@ interface RightSidebarProps {
 export function RightSidebar({
   invitations = [
     {
-      id: '1',
-      fromName: 'Prof. Carlos',
-      groupName: 'Algebra Avanzado',
-      status: 'pending',
+      id: "1",
+      fromName: "Prof. Carlos",
+      groupName: "Algebra Avanzado",
+      status: "pending",
     },
     {
-      id: '2',
-      fromName: 'Prof. María',
-      groupName: 'Cálculo II',
-      status: 'pending',
+      id: "2",
+      fromName: "Prof. María",
+      groupName: "Cálculo II",
+      status: "pending",
     },
   ],
   recentResources = [
-    { id: '1', title: 'Integrales Definidas', category: 'PDF', views: 245 },
-    { id: '2', title: 'Ecuaciones Diferenciales', category: 'Video', views: 189 },
-    { id: '3', title: 'Series de Fourier', category: 'PDF', views: 156 },
+    { id: "1", title: "Integrales Definidas", category: "PDF", views: 245 },
+    {
+      id: "2",
+      title: "Ecuaciones Diferenciales",
+      category: "Video",
+      views: 189,
+    },
+    { id: "3", title: "Series de Fourier", category: "PDF", views: 156 },
   ],
   recentActivity = [
-    { id: '1', message: 'Nueva respuesta en Álgebra', time: 'hace 2h', type: 'comment' },
-    { id: '2', message: 'Archivo subido por Prof. Juan', time: 'hace 4h', type: 'upload' },
-    { id: '3', message: 'Se unieron 3 estudiantes', time: 'hace 6h', type: 'join' },
+    {
+      id: "1",
+      message: "Nueva respuesta en Álgebra",
+      time: "hace 2h",
+      type: "comment",
+    },
+    {
+      id: "2",
+      message: "Archivo subido por Prof. Juan",
+      time: "hace 4h",
+      type: "upload",
+    },
+    {
+      id: "3",
+      message: "Se unieron 3 estudiantes",
+      time: "hace 6h",
+      type: "join",
+    },
   ],
 }: RightSidebarProps) {
   return (
@@ -67,11 +87,11 @@ export function RightSidebar({
               <div
                 key={invite.id}
                 className={`p-3 rounded-lg border transition-colors ${
-                  invite.status === 'pending'
-                    ? 'bg-blue-50 border-primary/20'
-                    : invite.status === 'accepted'
-                      ? 'bg-green-50 border-green-200'
-                      : 'bg-gray-50 border-border'
+                  invite.status === "pending"
+                    ? "bg-blue-50 border-primary/20"
+                    : invite.status === "accepted"
+                      ? "bg-green-50 border-green-200"
+                      : "bg-gray-50 border-border"
                 }`}
               >
                 <div className="font-medium text-sm text-foreground mb-1">
@@ -80,7 +100,7 @@ export function RightSidebar({
                 <div className="text-xs text-muted-foreground mb-2">
                   de {invite.fromName}
                 </div>
-                {invite.status === 'pending' && (
+                {invite.status === "pending" && (
                   <div className="flex gap-2">
                     <button className="flex-1 text-xs px-2 py-1.5 bg-primary text-primary-foreground rounded hover:bg-secondary transition-colors">
                       <Check className="w-3 h-3 inline mr-1" />
@@ -92,7 +112,7 @@ export function RightSidebar({
                     </button>
                   </div>
                 )}
-                {invite.status === 'accepted' && (
+                {invite.status === "accepted" && (
                   <div className="text-xs text-green-600 font-medium">
                     ✓ Aceptada
                   </div>
@@ -143,15 +163,18 @@ export function RightSidebar({
         </h3>
         <div className="space-y-3">
           {recentActivity.map((activity) => (
-            <div key={activity.id} className="flex gap-2 pb-3 border-b border-border last:border-b-0 last:pb-0">
+            <div
+              key={activity.id}
+              className="flex gap-2 pb-3 border-b border-border last:border-b-0 last:pb-0"
+            >
               <div className="flex-shrink-0">
-                {activity.type === 'comment' && (
+                {activity.type === "comment" && (
                   <div className="w-2 h-2 rounded-full bg-accent mt-1.5" />
                 )}
-                {activity.type === 'upload' && (
+                {activity.type === "upload" && (
                   <div className="w-2 h-2 rounded-full bg-primary mt-1.5" />
                 )}
-                {activity.type === 'join' && (
+                {activity.type === "join" && (
                   <div className="w-2 h-2 rounded-full bg-green-500 mt-1.5" />
                 )}
               </div>

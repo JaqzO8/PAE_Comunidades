@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Plus, X, Upload, Image as ImageIcon } from 'lucide-react';
+import { useState } from "react";
+import { Plus, X, Upload, Image as ImageIcon } from "lucide-react";
 
 interface CreateGroupViewProps {
   onGroupCreated?: (group: any) => void;
@@ -7,24 +7,24 @@ interface CreateGroupViewProps {
 
 export function CreateGroupView({ onGroupCreated }: CreateGroupViewProps) {
   const [formData, setFormData] = useState({
-    name: '',
-    description: '',
-    subject: '',
-    institution: '',
-    visibility: 'private' as 'private' | 'public',
+    name: "",
+    description: "",
+    subject: "",
+    institution: "",
+    visibility: "private" as "private" | "public",
     invitationIds: [] as string[],
-    inviteMessage: '',
+    inviteMessage: "",
     image: null as string | null,
   });
 
-  const [currentInviteId, setCurrentInviteId] = useState('');
+  const [currentInviteId, setCurrentInviteId] = useState("");
   const [showInviteForm, setShowInviteForm] = useState(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
 
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -39,7 +39,7 @@ export function CreateGroupView({ onGroupCreated }: CreateGroupViewProps) {
         ...prev,
         invitationIds: [...prev.invitationIds, currentInviteId],
       }));
-      setCurrentInviteId('');
+      setCurrentInviteId("");
     }
   };
 
@@ -92,19 +92,19 @@ export function CreateGroupView({ onGroupCreated }: CreateGroupViewProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.description || !formData.subject) {
-      alert('Por favor, completa todos los campos requeridos');
+      alert("Por favor, completa todos los campos requeridos");
       return;
     }
     onGroupCreated?.(formData);
-    alert('✓ ¡Comunidad creada exitosamente!');
+    alert("✓ ¡Comunidad creada exitosamente!");
     setFormData({
-      name: '',
-      description: '',
-      subject: '',
-      institution: '',
-      visibility: 'private',
+      name: "",
+      description: "",
+      subject: "",
+      institution: "",
+      visibility: "private",
       invitationIds: [],
-      inviteMessage: '',
+      inviteMessage: "",
       image: null,
     });
     setImagePreview(null);
@@ -124,7 +124,10 @@ export function CreateGroupView({ onGroupCreated }: CreateGroupViewProps) {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg border border-border p-6 space-y-6">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white rounded-lg border border-border p-6 space-y-6"
+        >
           {/* Community Image Upload */}
           <div>
             <label className="block text-sm font-bold text-foreground mb-2">
@@ -251,7 +254,7 @@ export function CreateGroupView({ onGroupCreated }: CreateGroupViewProps) {
                   type="radio"
                   name="visibility"
                   value="private"
-                  checked={formData.visibility === 'private'}
+                  checked={formData.visibility === "private"}
                   onChange={handleInputChange}
                   className="w-4 h-4 text-primary"
                 />
@@ -267,7 +270,7 @@ export function CreateGroupView({ onGroupCreated }: CreateGroupViewProps) {
                   type="radio"
                   name="visibility"
                   value="public"
-                  checked={formData.visibility === 'public'}
+                  checked={formData.visibility === "public"}
                   onChange={handleInputChange}
                   className="w-4 h-4 text-primary"
                 />
@@ -322,7 +325,7 @@ export function CreateGroupView({ onGroupCreated }: CreateGroupViewProps) {
                       type="button"
                       onClick={() => {
                         setShowInviteForm(false);
-                        setCurrentInviteId('');
+                        setCurrentInviteId("");
                       }}
                       className="px-4 py-2 bg-border text-foreground rounded-lg hover:bg-muted transition-colors"
                     >
@@ -404,15 +407,16 @@ export function CreateGroupView({ onGroupCreated }: CreateGroupViewProps) {
           <h4 className="font-bold text-foreground mb-3">💡 Consejos</h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li>
-              • Elige un nombre descriptivo para que los estudiantes identifiquen
-              fácilmente la comunidad
+              • Elige un nombre descriptivo para que los estudiantes
+              identifiquen fácilmente la comunidad
             </li>
             <li>
               • Las comunidades privadas requieren invitación; las públicas son
               accesibles para todos
             </li>
             <li>
-              • Una imagen atractiva ayuda a identificar rápidamente tu comunidad
+              • Una imagen atractiva ayuda a identificar rápidamente tu
+              comunidad
             </li>
             <li>
               • Puedes enviar invitaciones iniciales ahora o más tarde desde la

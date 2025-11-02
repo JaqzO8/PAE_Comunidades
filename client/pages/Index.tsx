@@ -1,34 +1,37 @@
-import { useState } from 'react';
-import { Header } from '@/components/Header';
-import { Sidebar } from '@/components/Sidebar';
-import { GroupsView } from '@/components/sections/GroupsView';
-import { PublicGroupsView } from '@/components/sections/PublicGroupsView';
-import { PublicForumsView } from '@/components/sections/PublicForumsView';
-import { CreateGroupView } from '@/components/sections/CreateGroupView';
-import { GroupDetailView } from '@/components/sections/GroupDetailView';
-import { Users, AlertCircle, FileText, BarChart3 } from 'lucide-react';
+import { useState } from "react";
+import { Header } from "@/components/Header";
+import { Sidebar } from "@/components/Sidebar";
+import { GroupsView } from "@/components/sections/GroupsView";
+import { PublicGroupsView } from "@/components/sections/PublicGroupsView";
+import { PublicForumsView } from "@/components/sections/PublicForumsView";
+import { CreateGroupView } from "@/components/sections/CreateGroupView";
+import { GroupDetailView } from "@/components/sections/GroupDetailView";
+import { Users, AlertCircle, FileText, BarChart3 } from "lucide-react";
 
 interface ToastNotification {
   id: string;
   message: string;
-  type: 'success' | 'error' | 'info';
+  type: "success" | "error" | "info";
 }
 
 export default function Index() {
-  const [userRole, setUserRole] = useState<'teacher' | 'student'>('student');
-  const [activeSection, setActiveSection] = useState('groups');
+  const [userRole, setUserRole] = useState<"teacher" | "student">("student");
+  const [activeSection, setActiveSection] = useState("groups");
   const [selectedGroupId, setSelectedGroupId] = useState<string | null>(null);
   const [toasts, setToasts] = useState<ToastNotification[]>([]);
 
   const handleCreateGroup = () => {
-    setActiveSection('create-group');
+    setActiveSection("create-group");
   };
 
   const handleSearch = (query: string) => {
-    console.log('Search:', query);
+    console.log("Search:", query);
   };
 
-  const addToast = (message: string, type: 'success' | 'error' | 'info' = 'info') => {
+  const addToast = (
+    message: string,
+    type: "success" | "error" | "info" = "info",
+  ) => {
     const id = Date.now().toString();
     setToasts((prev) => [...prev, { id, message, type }]);
     setTimeout(() => {
@@ -36,11 +39,11 @@ export default function Index() {
     }, 4000);
   };
 
-  const handleRoleChange = (newRole: 'teacher' | 'student') => {
+  const handleRoleChange = (newRole: "teacher" | "student") => {
     setUserRole(newRole);
     addToast(
-      `Ahora ves la interfaz como ${newRole === 'teacher' ? 'Profesor' : 'Estudiante'}`,
-      'info'
+      `Ahora ves la interfaz como ${newRole === "teacher" ? "Profesor" : "Estudiante"}`,
+      "info",
     );
   };
 
@@ -57,18 +60,20 @@ export default function Index() {
     }
 
     switch (activeSection) {
-      case 'groups':
-        return <GroupsView userRole={userRole} onGroupSelect={setSelectedGroupId} />;
-      case 'public-groups':
+      case "groups":
+        return (
+          <GroupsView userRole={userRole} onGroupSelect={setSelectedGroupId} />
+        );
+      case "public-groups":
         return <PublicGroupsView onGroupSelect={setSelectedGroupId} />;
-      case 'forums-public':
+      case "forums-public":
         return <PublicForumsView />;
-      case 'create-group':
-        return userRole === 'teacher' ? (
+      case "create-group":
+        return userRole === "teacher" ? (
           <CreateGroupView
             onGroupCreated={() => {
-              setActiveSection('groups');
-              addToast('¡Grupo creado exitosamente!', 'success');
+              setActiveSection("groups");
+              addToast("¡Grupo creado exitosamente!", "success");
             }}
           />
         ) : (
@@ -79,7 +84,7 @@ export default function Index() {
             </p>
           </div>
         );
-      case 'invitations':
+      case "invitations":
         return (
           <div className="space-y-6">
             <div>
@@ -102,7 +107,7 @@ export default function Index() {
             </div>
           </div>
         );
-      case 'resources':
+      case "resources":
         return (
           <div className="space-y-6">
             <div>
@@ -124,8 +129,8 @@ export default function Index() {
             </div>
           </div>
         );
-      case 'analytics':
-        return userRole === 'teacher' ? (
+      case "analytics":
+        return userRole === "teacher" ? (
           <div className="space-y-6">
             <div>
               <h1 className="text-3xl font-bold text-foreground mb-2">
@@ -137,10 +142,10 @@ export default function Index() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { label: 'Grupos Activos', value: '3', change: '+1' },
-                { label: 'Estudiantes Total', value: '73', change: '+12' },
-                { label: 'Documentos', value: '39', change: '+8' },
-                { label: 'Preguntas Respondidas', value: '156', change: '+42' },
+                { label: "Grupos Activos", value: "3", change: "+1" },
+                { label: "Estudiantes Total", value: "73", change: "+12" },
+                { label: "Documentos", value: "39", change: "+8" },
+                { label: "Preguntas Respondidas", value: "156", change: "+42" },
               ].map((stat, idx) => (
                 <div
                   key={idx}
@@ -210,11 +215,11 @@ export default function Index() {
           <div
             key={toast.id}
             className={`px-4 py-3 rounded-lg text-sm font-medium shadow-lg animate-slide-in-right ${
-              toast.type === 'success'
-                ? 'bg-green-500 text-white'
-                : toast.type === 'error'
-                  ? 'bg-red-500 text-white'
-                  : 'bg-blue-500 text-white'
+              toast.type === "success"
+                ? "bg-green-500 text-white"
+                : toast.type === "error"
+                  ? "bg-red-500 text-white"
+                  : "bg-blue-500 text-white"
             }`}
           >
             {toast.message}

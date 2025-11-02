@@ -1,5 +1,5 @@
-import { Users, MessageSquare, FileText } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Users, MessageSquare, FileText } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface GroupCardProps {
   id: string;
@@ -9,7 +9,7 @@ interface GroupCardProps {
   memberCount: number;
   messageCount: number;
   fileCount: number;
-  visibility: 'public' | 'private';
+  visibility: "public" | "private";
   isOwner?: boolean;
   onClick?: () => void;
   coverColor?: string;
@@ -28,20 +28,20 @@ export function GroupCard({
   visibility,
   isOwner = false,
   onClick,
-  coverColor = 'primary',
+  coverColor = "primary",
   progress = 0,
   showProgress = false,
 }: GroupCardProps) {
   const getProgressColor = (value: number) => {
-    if (value >= 80) return 'bg-green-500';
-    if (value >= 50) return 'bg-yellow-500';
-    return 'bg-red-500';
+    if (value >= 80) return "bg-green-500";
+    if (value >= 50) return "bg-yellow-500";
+    return "bg-red-500";
   };
 
   const getProgressTextColor = (value: number) => {
-    if (value >= 80) return 'text-green-600';
-    if (value >= 50) return 'text-yellow-600';
-    return 'text-red-600';
+    if (value >= 80) return "text-green-600";
+    if (value >= 50) return "text-yellow-600";
+    return "text-red-600";
   };
   return (
     <div
@@ -51,12 +51,12 @@ export function GroupCard({
       {/* Cover */}
       <div
         className={cn(
-          'h-32 bg-gradient-to-br transition-opacity group-hover:opacity-90',
-          coverColor === 'primary'
-            ? 'from-primary to-secondary'
-            : coverColor === 'accent'
-              ? 'from-accent to-orange-500'
-              : 'from-blue-400 to-blue-600'
+          "h-32 bg-gradient-to-br transition-opacity group-hover:opacity-90",
+          coverColor === "primary"
+            ? "from-primary to-secondary"
+            : coverColor === "accent"
+              ? "from-accent to-orange-500"
+              : "from-blue-400 to-blue-600",
         )}
       />
 
@@ -66,7 +66,7 @@ export function GroupCard({
           <h3 className="font-bold text-lg text-foreground line-clamp-1">
             {title}
           </h3>
-          {visibility === 'public' && (
+          {visibility === "public" && (
             <span className="text-xs font-medium px-2 py-1 bg-muted text-muted-foreground rounded">
               Público
             </span>
@@ -77,9 +77,7 @@ export function GroupCard({
           {description}
         </p>
 
-        <div className="text-xs font-medium text-accent mb-3">
-          {subject}
-        </div>
+        <div className="text-xs font-medium text-accent mb-3">{subject}</div>
 
         {/* Progress Bar (Students Only) */}
         {showProgress && (
@@ -88,7 +86,9 @@ export function GroupCard({
               <span className="text-xs font-medium text-foreground">
                 Tu Progreso
               </span>
-              <span className={`text-xs font-bold ${getProgressTextColor(progress)}`}>
+              <span
+                className={`text-xs font-bold ${getProgressTextColor(progress)}`}
+              >
                 {progress}%
               </span>
             </div>

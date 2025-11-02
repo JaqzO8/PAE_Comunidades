@@ -1,4 +1,4 @@
-import { GroupCard } from '../GroupCard';
+import { GroupCard } from "../GroupCard";
 
 interface Group {
   id: string;
@@ -8,7 +8,7 @@ interface Group {
   memberCount: number;
   messageCount: number;
   fileCount: number;
-  visibility: 'public' | 'private';
+  visibility: "public" | "private";
   isOwner?: boolean;
   coverColor?: string;
   progress?: number;
@@ -16,58 +16,62 @@ interface Group {
 
 interface GroupsViewProps {
   groups?: Group[];
-  userRole: 'teacher' | 'student';
+  userRole: "teacher" | "student";
   onGroupSelect?: (groupId: string) => void;
 }
 
 export function GroupsView({
   groups = [
     {
-      id: '1',
-      title: 'Algebra Avanzado II',
-      description: 'Espacios vectoriales, transformaciones lineales y matrices.',
-      subject: 'Matemáticas',
+      id: "1",
+      title: "Algebra Avanzado II",
+      description:
+        "Espacios vectoriales, transformaciones lineales y matrices.",
+      subject: "Matemáticas",
       memberCount: 24,
       messageCount: 156,
       fileCount: 18,
-      visibility: 'private',
+      visibility: "private",
       isOwner: true,
-      coverColor: 'primary',
+      coverColor: "primary",
       progress: 85,
     },
     {
-      id: '2',
-      title: 'Cálculo Diferencial',
-      description: 'Límites, derivadas y aplicaciones de la derivada.',
-      subject: 'Matemáticas',
+      id: "2",
+      title: "Cálculo Diferencial",
+      description: "Límites, derivadas y aplicaciones de la derivada.",
+      subject: "Matemáticas",
       memberCount: 31,
       messageCount: 89,
       fileCount: 12,
-      visibility: 'public',
-      coverColor: 'accent',
+      visibility: "public",
+      coverColor: "accent",
       progress: 62,
     },
     {
-      id: '3',
-      title: 'Física Cuántica I',
-      description: 'Fundamentos de mecánica cuántica y principios de superposición.',
-      subject: 'Física',
+      id: "3",
+      title: "Física Cuántica I",
+      description:
+        "Fundamentos de mecánica cuántica y principios de superposición.",
+      subject: "Física",
       memberCount: 18,
       messageCount: 45,
       fileCount: 9,
-      visibility: 'private',
-      coverColor: 'blue',
+      visibility: "private",
+      coverColor: "blue",
       progress: 45,
     },
   ],
-  userRole = 'student',
+  userRole = "student",
   onGroupSelect,
 }: GroupsViewProps) {
   return (
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-foreground mb-2">Mis Comunidades</h1>
+        <h1 className="text-3xl font-bold text-foreground mb-2">
+          Mis Comunidades
+        </h1>
         <p className="text-muted-foreground">
           Gestiona tus comunidades de estudio colaborativo
         </p>
@@ -79,7 +83,7 @@ export function GroupsView({
           <GroupCard
             key={group.id}
             {...group}
-            showProgress={userRole === 'student'}
+            showProgress={userRole === "student"}
             onClick={() => onGroupSelect?.(group.id)}
           />
         ))}
@@ -95,9 +99,9 @@ export function GroupsView({
             Sin comunidades aún
           </h2>
           <p className="text-muted-foreground mb-4">
-            {userRole === 'teacher'
-              ? 'Crea tu primer comunidad de estudio para comenzar'
-              : 'Únete a una comunidad pública o espera una invitación'}
+            {userRole === "teacher"
+              ? "Crea tu primer comunidad de estudio para comenzar"
+              : "Únete a una comunidad pública o espera una invitación"}
           </p>
         </div>
       )}

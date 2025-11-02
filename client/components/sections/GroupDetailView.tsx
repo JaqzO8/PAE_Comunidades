@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import {
   ArrowLeft,
   MessageSquare,
@@ -10,46 +10,46 @@ import {
   Award,
   Download,
   Share2,
-} from 'lucide-react';
-import { ForumCard } from '../ForumCard';
+} from "lucide-react";
+import { ForumCard } from "../ForumCard";
 
 interface GroupDetailViewProps {
   groupId?: string;
   onBack?: () => void;
-  userRole?: 'teacher' | 'student';
+  userRole?: "teacher" | "student";
 }
 
-type TabType = 'chat' | 'files' | 'forums' | 'challenges';
+type TabType = "chat" | "files" | "forums" | "challenges";
 
 export function GroupDetailView({
-  groupId = '1',
+  groupId = "1",
   onBack,
-  userRole = 'student',
+  userRole = "student",
 }: GroupDetailViewProps) {
-  const [activeTab, setActiveTab] = useState<TabType>('chat');
-  const [messageInput, setMessageInput] = useState('');
+  const [activeTab, setActiveTab] = useState<TabType>("chat");
+  const [messageInput, setMessageInput] = useState("");
   const [messages, setMessages] = useState([
     {
-      id: '1',
-      author: 'Prof. Carlos',
-      avatar: '👨‍🏫',
-      content: 'Hola a todos, bienvenidos al grupo de Algebra Avanzado II',
-      timestamp: 'hace 2h',
+      id: "1",
+      author: "Prof. Carlos",
+      avatar: "👨‍🏫",
+      content: "Hola a todos, bienvenidos al grupo de Algebra Avanzado II",
+      timestamp: "hace 2h",
       isTeacher: true,
     },
     {
-      id: '2',
-      author: 'Juan García',
-      avatar: '👨‍🎓',
-      content: '¡Gracias Prof! Estoy emocionado de empezar',
-      timestamp: 'hace 1h',
+      id: "2",
+      author: "Juan García",
+      avatar: "👨‍🎓",
+      content: "¡Gracias Prof! Estoy emocionado de empezar",
+      timestamp: "hace 1h",
     },
     {
-      id: '3',
-      author: 'Prof. Carlos',
-      avatar: '👨‍🏫',
-      content: 'Esta semana trabajaremos con espacios vectoriales...',
-      timestamp: 'hace 45m',
+      id: "3",
+      author: "Prof. Carlos",
+      avatar: "👨‍🏫",
+      content: "Esta semana trabajaremos con espacios vectoriales...",
+      timestamp: "hace 45m",
       isTeacher: true,
     },
   ]);
@@ -60,87 +60,87 @@ export function GroupDetailView({
         ...prev,
         {
           id: Date.now().toString(),
-          author: userRole === 'teacher' ? 'Prof. You' : 'Your Name',
-          avatar: userRole === 'teacher' ? '👨‍🏫' : '👨‍🎓',
+          author: userRole === "teacher" ? "Prof. You" : "Your Name",
+          avatar: userRole === "teacher" ? "👨‍🏫" : "👨‍🎓",
           content: messageInput,
-          timestamp: 'ahora',
+          timestamp: "ahora",
         },
       ]);
-      setMessageInput('');
+      setMessageInput("");
     }
   };
 
   const files = [
     {
-      id: '1',
-      name: 'Espacios Vectoriales - Parte 1.pdf',
-      size: '2.4 MB',
-      uploadedBy: 'Prof. Carlos',
-      uploadedAt: 'hace 2 días',
+      id: "1",
+      name: "Espacios Vectoriales - Parte 1.pdf",
+      size: "2.4 MB",
+      uploadedBy: "Prof. Carlos",
+      uploadedAt: "hace 2 días",
     },
     {
-      id: '2',
-      name: 'Ejercicios Propuestos.pdf',
-      size: '1.8 MB',
-      uploadedBy: 'Prof. Carlos',
-      uploadedAt: 'hace 1 día',
+      id: "2",
+      name: "Ejercicios Propuestos.pdf",
+      size: "1.8 MB",
+      uploadedBy: "Prof. Carlos",
+      uploadedAt: "hace 1 día",
     },
     {
-      id: '3',
-      name: 'Soluciones - Tarea 1.pdf',
-      size: '3.2 MB',
-      uploadedBy: 'Prof. Carlos',
-      uploadedAt: 'hace 6h',
+      id: "3",
+      name: "Soluciones - Tarea 1.pdf",
+      size: "3.2 MB",
+      uploadedBy: "Prof. Carlos",
+      uploadedAt: "hace 6h",
     },
   ];
 
   const forumThreads = [
     {
-      id: '1',
-      title: '¿Cómo calcular el espacio nulo?',
-      author: 'María López',
+      id: "1",
+      title: "¿Cómo calcular el espacio nulo?",
+      author: "María López",
       answerCount: 3,
       views: 24,
       votes: 7,
-      tags: ['espacios-vectoriales', 'algebra-lineal'],
+      tags: ["espacios-vectoriales", "algebra-lineal"],
       isAnswered: true,
     },
     {
-      id: '2',
-      title: 'Duda sobre transformaciones lineales',
-      author: 'Juan García',
+      id: "2",
+      title: "Duda sobre transformaciones lineales",
+      author: "Juan García",
       answerCount: 1,
       views: 15,
       votes: 2,
-      tags: ['transformaciones', 'matrices'],
+      tags: ["transformaciones", "matrices"],
       isAnswered: false,
     },
     {
-      id: '3',
-      title: 'Recursos para entender valores propios',
-      author: 'Carlos Mendez',
+      id: "3",
+      title: "Recursos para entender valores propios",
+      author: "Carlos Mendez",
       answerCount: 5,
       views: 42,
       votes: 12,
-      tags: ['eigenvalues', 'algebra-lineal'],
+      tags: ["eigenvalues", "algebra-lineal"],
       isAnswered: true,
     },
   ];
 
   const challenges = [
     {
-      id: '1',
-      title: 'Quiz: Espacios Vectoriales',
-      description: '10 preguntas sobre espacios vectoriales básicos',
-      deadline: 'Vence en 3 días',
+      id: "1",
+      title: "Quiz: Espacios Vectoriales",
+      description: "10 preguntas sobre espacios vectoriales básicos",
+      deadline: "Vence en 3 días",
       participants: 18,
       completed: 12,
     },
     {
-      id: '2',
-      title: 'Problema: Transformaciones Lineales',
-      description: 'Resuelve 5 problemas de transformaciones lineales',
-      deadline: 'Vence en 7 días',
+      id: "2",
+      title: "Problema: Transformaciones Lineales",
+      description: "Resuelve 5 problemas de transformaciones lineales",
+      deadline: "Vence en 7 días",
       participants: 24,
       completed: 8,
     },
@@ -160,7 +160,9 @@ export function GroupDetailView({
           <h1 className="text-3xl font-bold text-foreground">
             Algebra Avanzado II
           </h1>
-          <p className="text-muted-foreground">Espacios vectoriales, transformaciones lineales y matrices</p>
+          <p className="text-muted-foreground">
+            Espacios vectoriales, transformaciones lineales y matrices
+          </p>
         </div>
       </div>
 
@@ -188,7 +190,7 @@ export function GroupDetailView({
 
       {/* Tabs */}
       <div className="flex gap-2 border-b border-border overflow-x-auto">
-        {(['chat', 'files', 'forums', 'challenges'] as TabType[]).map((tab) => {
+        {(["chat", "files", "forums", "challenges"] as TabType[]).map((tab) => {
           const icons = {
             chat: MessageSquare,
             files: FileText,
@@ -196,10 +198,10 @@ export function GroupDetailView({
             challenges: Award,
           };
           const labels = {
-            chat: 'Chat',
-            files: 'Archivos',
-            forums: 'Foros',
-            challenges: 'Retos',
+            chat: "Chat",
+            files: "Archivos",
+            forums: "Foros",
+            challenges: "Retos",
           };
           const Icon = icons[tab];
 
@@ -209,8 +211,8 @@ export function GroupDetailView({
               onClick={() => setActiveTab(tab)}
               className={`flex items-center gap-2 px-4 py-3 border-b-2 font-medium transition-colors whitespace-nowrap ${
                 activeTab === tab
-                  ? 'border-accent text-accent'
-                  : 'border-transparent text-muted-foreground hover:text-foreground'
+                  ? "border-accent text-accent"
+                  : "border-transparent text-muted-foreground hover:text-foreground"
               }`}
             >
               <Icon className="w-4 h-4" />
@@ -223,7 +225,7 @@ export function GroupDetailView({
       {/* Tab Content */}
       <div>
         {/* Chat Tab */}
-        {activeTab === 'chat' && (
+        {activeTab === "chat" && (
           <div className="space-y-4">
             <div className="bg-white rounded-lg border border-border p-4 h-96 overflow-y-auto space-y-4">
               {messages.map((msg) => (
@@ -251,7 +253,7 @@ export function GroupDetailView({
                 value={messageInput}
                 onChange={(e) => setMessageInput(e.target.value)}
                 onKeyPress={(e) => {
-                  if (e.key === 'Enter') handleSendMessage();
+                  if (e.key === "Enter") handleSendMessage();
                 }}
                 placeholder="Escribe un mensaje..."
                 className="flex-1 px-4 py-2 border border-border rounded-lg bg-muted focus:outline-none focus:ring-2 focus:ring-primary"
@@ -267,7 +269,7 @@ export function GroupDetailView({
                 Enviar
               </button>
 
-              {userRole === 'teacher' && (
+              {userRole === "teacher" && (
                 <button className="px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-orange-600 transition-colors font-medium flex items-center gap-2">
                   <Share2 className="w-4 h-4" />
                   Recomendar Recurso
@@ -278,9 +280,9 @@ export function GroupDetailView({
         )}
 
         {/* Files Tab */}
-        {activeTab === 'files' && (
+        {activeTab === "files" && (
           <div className="space-y-4">
-            {userRole === 'teacher' && (
+            {userRole === "teacher" && (
               <div className="border-2 border-dashed border-accent rounded-lg p-8 text-center hover:bg-blue-50 transition-colors cursor-pointer">
                 <Paperclip className="w-8 h-8 text-accent mx-auto mb-3" />
                 <p className="font-bold text-foreground mb-1">
@@ -301,9 +303,7 @@ export function GroupDetailView({
                   <div className="flex items-center gap-4 flex-1">
                     <FileText className="w-8 h-8 text-accent" />
                     <div>
-                      <p className="font-medium text-foreground">
-                        {file.name}
-                      </p>
+                      <p className="font-medium text-foreground">{file.name}</p>
                       <p className="text-xs text-muted-foreground">
                         {file.uploadedBy} • {file.uploadedAt} • {file.size}
                       </p>
@@ -319,9 +319,9 @@ export function GroupDetailView({
         )}
 
         {/* Forums Tab */}
-        {activeTab === 'forums' && (
+        {activeTab === "forums" && (
           <div className="space-y-4">
-            {userRole === 'student' && (
+            {userRole === "student" && (
               <button className="w-full px-4 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-orange-600 transition-colors font-bold flex items-center justify-center gap-2">
                 + Nueva Pregunta
               </button>
@@ -336,9 +336,9 @@ export function GroupDetailView({
         )}
 
         {/* Challenges Tab */}
-        {activeTab === 'challenges' && (
+        {activeTab === "challenges" && (
           <div className="space-y-4">
-            {userRole === 'teacher' && (
+            {userRole === "teacher" && (
               <button className="w-full px-4 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-secondary transition-colors font-bold flex items-center justify-center gap-2">
                 + Crear Reto/Quiz
               </button>
@@ -369,7 +369,8 @@ export function GroupDetailView({
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-muted-foreground">
-                        {challenge.completed}/{challenge.participants} completados
+                        {challenge.completed}/{challenge.participants}{" "}
+                        completados
                       </span>
                       <div className="h-2 w-24 bg-muted rounded-full overflow-hidden">
                         <div

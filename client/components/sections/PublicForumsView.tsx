@@ -1,4 +1,4 @@
-import { MessageSquare, Users, Zap } from 'lucide-react';
+import { MessageSquare, Users, Zap } from "lucide-react";
 
 interface Forum {
   id: string;
@@ -6,7 +6,7 @@ interface Forum {
   description: string;
   threadCount: number;
   memberCount: number;
-  activityLevel: 'high' | 'medium' | 'low';
+  activityLevel: "high" | "medium" | "low";
   icon: string;
 }
 
@@ -18,58 +18,61 @@ interface PublicForumsViewProps {
 export function PublicForumsView({
   forums = [
     {
-      id: '1',
-      title: 'Matemáticas General',
-      description: 'Preguntas y discusiones sobre matemática general',
+      id: "1",
+      title: "Matemáticas General",
+      description: "Preguntas y discusiones sobre matemática general",
       threadCount: 234,
       memberCount: 1250,
-      activityLevel: 'high',
-      icon: '🔢',
+      activityLevel: "high",
+      icon: "🔢",
     },
     {
-      id: '2',
-      title: 'Física e Ingeniería',
-      description: 'Temas de física clásica, cuántica y aplicaciones en ingeniería',
+      id: "2",
+      title: "Física e Ingeniería",
+      description:
+        "Temas de física clásica, cuántica y aplicaciones en ingeniería",
       threadCount: 189,
       memberCount: 892,
-      activityLevel: 'high',
-      icon: '⚙️',
+      activityLevel: "high",
+      icon: "⚙️",
     },
     {
-      id: '3',
-      title: 'Programación',
-      description: 'Algoritmos, estructuras de datos y lenguajes de programación',
+      id: "3",
+      title: "Programación",
+      description:
+        "Algoritmos, estructuras de datos y lenguajes de programación",
       threadCount: 412,
       memberCount: 2150,
-      activityLevel: 'high',
-      icon: '💻',
+      activityLevel: "high",
+      icon: "💻",
     },
     {
-      id: '4',
-      title: 'Química Orgánica',
-      description: 'Reacciones, mecanismos y síntesis en química orgánica',
+      id: "4",
+      title: "Química Orgánica",
+      description: "Reacciones, mecanismos y síntesis en química orgánica",
       threadCount: 98,
       memberCount: 456,
-      activityLevel: 'medium',
-      icon: '🧪',
+      activityLevel: "medium",
+      icon: "🧪",
     },
     {
-      id: '5',
-      title: 'Biología Molecular',
-      description: 'ADN, ARN, proteínas y procesos celulares',
+      id: "5",
+      title: "Biología Molecular",
+      description: "ADN, ARN, proteínas y procesos celulares",
       threadCount: 145,
       memberCount: 678,
-      activityLevel: 'medium',
-      icon: '🧬',
+      activityLevel: "medium",
+      icon: "🧬",
     },
     {
-      id: '6',
-      title: 'Historia y Sociología',
-      description: 'Discusiones sobre eventos históricos y movimientos sociales',
+      id: "6",
+      title: "Historia y Sociología",
+      description:
+        "Discusiones sobre eventos históricos y movimientos sociales",
       threadCount: 201,
       memberCount: 543,
-      activityLevel: 'medium',
-      icon: '📚',
+      activityLevel: "medium",
+      icon: "📚",
     },
   ],
   onForumSelect,
@@ -133,7 +136,7 @@ export function PublicForumsView({
                 <span className="text-muted-foreground">
                   <span className="font-bold text-foreground">
                     {forum.threadCount}
-                  </span>{' '}
+                  </span>{" "}
                   hilos
                 </span>
               </div>
@@ -142,26 +145,26 @@ export function PublicForumsView({
                 <span className="text-muted-foreground">
                   <span className="font-bold text-foreground">
                     {forum.memberCount}
-                  </span>{' '}
+                  </span>{" "}
                   miembros
                 </span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Zap
                   className={`w-4 h-4 ${
-                    forum.activityLevel === 'high'
-                      ? 'text-orange-500'
-                      : forum.activityLevel === 'medium'
-                        ? 'text-yellow-500'
-                        : 'text-gray-400'
+                    forum.activityLevel === "high"
+                      ? "text-orange-500"
+                      : forum.activityLevel === "medium"
+                        ? "text-yellow-500"
+                        : "text-gray-400"
                   }`}
                 />
                 <span className="text-muted-foreground">
-                  {forum.activityLevel === 'high'
-                    ? 'Alta actividad'
-                    : forum.activityLevel === 'medium'
-                      ? 'Actividad media'
-                      : 'Baja actividad'}
+                  {forum.activityLevel === "high"
+                    ? "Alta actividad"
+                    : forum.activityLevel === "medium"
+                      ? "Actividad media"
+                      : "Baja actividad"}
                 </span>
               </div>
             </div>

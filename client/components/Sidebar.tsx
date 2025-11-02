@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import {
   BookOpen,
   Users,
@@ -10,11 +10,11 @@ import {
   X,
   MessageSquare,
   Globe,
-} from 'lucide-react';
-import { cn } from '@/lib/utils';
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface SidebarProps {
-  userRole: 'teacher' | 'student';
+  userRole: "teacher" | "student";
   activeSection: string;
   onSectionChange: (section: string) => void;
 }
@@ -23,57 +23,61 @@ interface NavItem {
   id: string;
   label: string;
   icon: any;
-  roles: ('teacher' | 'student')[];
+  roles: ("teacher" | "student")[];
   badge?: number;
 }
 
-export function Sidebar({ userRole, activeSection, onSectionChange }: SidebarProps) {
+export function Sidebar({
+  userRole,
+  activeSection,
+  onSectionChange,
+}: SidebarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navItems: NavItem[] = [
     {
-      id: 'groups',
-      label: 'Mis Comunidades',
+      id: "groups",
+      label: "Mis Comunidades",
       icon: Users,
-      roles: ['teacher', 'student'],
+      roles: ["teacher", "student"],
       badge: 3,
     },
     {
-      id: 'public-groups',
-      label: 'Comunidades Públicas',
+      id: "public-groups",
+      label: "Comunidades Públicas",
       icon: Globe,
-      roles: ['teacher', 'student'],
+      roles: ["teacher", "student"],
       badge: 8,
     },
     {
-      id: 'forums-public',
-      label: 'Foros Públicos',
+      id: "forums-public",
+      label: "Foros Públicos",
       icon: MessageSquare,
-      roles: ['teacher', 'student'],
+      roles: ["teacher", "student"],
       badge: 5,
     },
     {
-      id: 'create-group',
-      label: 'Crear Comunidad',
+      id: "create-group",
+      label: "Crear Comunidad",
       icon: Plus,
-      roles: ['teacher'],
+      roles: ["teacher"],
     },
     {
-      id: 'resources',
-      label: 'Recursos',
+      id: "resources",
+      label: "Recursos",
       icon: FileText,
-      roles: ['teacher', 'student'],
+      roles: ["teacher", "student"],
     },
     {
-      id: 'analytics',
-      label: 'Analíticas',
+      id: "analytics",
+      label: "Analíticas",
       icon: BarChart3,
-      roles: ['teacher'],
+      roles: ["teacher"],
     },
   ];
 
   const filteredItems = navItems.filter((item) =>
-    item.roles.includes(userRole)
+    item.roles.includes(userRole),
   );
 
   const SidebarContent = () => (
@@ -91,10 +95,10 @@ export function Sidebar({ userRole, activeSection, onSectionChange }: SidebarPro
                 setMobileOpen(false);
               }}
               className={cn(
-                'w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 relative',
+                "w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 relative",
                 isActive
-                  ? 'bg-primary text-primary-foreground font-medium'
-                  : 'text-foreground hover:bg-muted'
+                  ? "bg-primary text-primary-foreground font-medium"
+                  : "text-foreground hover:bg-muted",
               )}
             >
               <Icon className="w-5 h-5" />
@@ -102,10 +106,10 @@ export function Sidebar({ userRole, activeSection, onSectionChange }: SidebarPro
               {item.badge && (
                 <span
                   className={cn(
-                    'ml-auto text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center',
+                    "ml-auto text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center",
                     isActive
-                      ? 'bg-primary-foreground text-primary'
-                      : 'bg-accent text-accent-foreground'
+                      ? "bg-primary-foreground text-primary"
+                      : "bg-accent text-accent-foreground",
                   )}
                 >
                   {item.badge}

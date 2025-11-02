@@ -1,4 +1,4 @@
-import { MessageCircle, Eye, ThumbsUp } from 'lucide-react';
+import { MessageCircle, Eye, ThumbsUp } from "lucide-react";
 
 interface ForumCardProps {
   id: string;

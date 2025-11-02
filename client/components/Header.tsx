@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { Search, Plus, User, LogOut } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { useState } from "react";
+import { Search, Plus, User, LogOut } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface HeaderProps {
-  userRole: 'teacher' | 'student';
-  onRoleChange: (role: 'teacher' | 'student') => void;
+  userRole: "teacher" | "student";
+  onRoleChange: (role: "teacher" | "student") => void;
   onCreateGroup?: () => void;
   onSearch?: (query: string) => void;
 }
@@ -12,7 +12,7 @@ interface HeaderProps {
 interface SearchResult {
   id: string;
   name: string;
-  type: 'user' | 'group';
+  type: "user" | "group";
   avatar?: string;
 }
 
@@ -23,7 +23,7 @@ export function Header({
   onSearch,
 }: HeaderProps) {
   const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
 
   const handleSearch = (query: string) => {
@@ -31,13 +31,13 @@ export function Header({
     if (query.length > 0) {
       // Simulate search results
       const mockResults: SearchResult[] = [
-        { id: 'A12345', name: 'Juan García', type: 'user' },
-        { id: 'A12346', name: 'María López', type: 'user' },
-        { id: 'G001', name: 'Algebra Avanzado', type: 'group' },
+        { id: "A12345", name: "Juan García", type: "user" },
+        { id: "A12346", name: "María López", type: "user" },
+        { id: "G001", name: "Algebra Avanzado", type: "group" },
       ].filter(
         (r) =>
           r.name.toLowerCase().includes(query.toLowerCase()) ||
-          r.id.toLowerCase().includes(query.toLowerCase())
+          r.id.toLowerCase().includes(query.toLowerCase()),
       );
       setSearchResults(mockResults);
       onSearch?.(query);
@@ -48,7 +48,7 @@ export function Header({
 
   const handleAddFriend = (userId: string) => {
     alert(`Invitación enviada a ${userId}`);
-    setSearchQuery('');
+    setSearchQuery("");
     setSearchResults([]);
   };
 
@@ -70,8 +70,8 @@ export function Header({
           <div className="relative max-w-md">
             <div
               className={cn(
-                'relative transition-all duration-200',
-                searchOpen ? 'ring-2 ring-primary' : ''
+                "relative transition-all duration-200",
+                searchOpen ? "ring-2 ring-primary" : "",
               )}
             >
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
@@ -99,10 +99,10 @@ export function Header({
                         {result.name}
                       </div>
                       <div className="text-xs text-muted-foreground">
-                        {result.type === 'user' ? 'Usuario' : 'Grupo'}
+                        {result.type === "user" ? "Usuario" : "Grupo"}
                       </div>
                     </div>
-                    {result.type === 'user' && (
+                    {result.type === "user" && (
                       <button
                         onClick={() => handleAddFriend(result.id)}
                         className="text-xs px-3 py-1.5 bg-accent text-accent-foreground rounded hover:bg-orange-600 transition-colors font-medium"
@@ -119,7 +119,7 @@ export function Header({
 
         {/* Right Side Actions */}
         <div className="flex items-center gap-2 md:gap-4">
-          {userRole === 'teacher' && (
+          {userRole === "teacher" && (
             <button
               onClick={onCreateGroup}
               className="hidden sm:flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-orange-600 transition-colors font-medium text-sm"
@@ -134,7 +134,7 @@ export function Header({
             <button className="flex items-center gap-2 px-3 py-2 hover:bg-muted rounded-lg transition-colors">
               <User className="w-5 h-5 text-primary" />
               <span className="hidden sm:inline text-sm font-medium text-foreground">
-                {userRole === 'teacher' ? 'Profesor' : 'Estudiante'}
+                {userRole === "teacher" ? "Profesor" : "Estudiante"}
               </span>
             </button>
 
@@ -146,11 +146,15 @@ export function Header({
                 </div>
               </div>
               <button
-                onClick={() => onRoleChange(userRole === 'teacher' ? 'student' : 'teacher')}
+                onClick={() =>
+                  onRoleChange(userRole === "teacher" ? "student" : "teacher")
+                }
                 className="w-full text-left px-4 py-2 hover:bg-muted transition-colors flex items-center gap-2 text-sm"
               >
                 <User className="w-4 h-4" />
-                {userRole === 'teacher' ? 'Ver como Estudiante' : 'Ver como Profesor'}
+                {userRole === "teacher"
+                  ? "Ver como Estudiante"
+                  : "Ver como Profesor"}
               </button>
               <button className="w-full text-left px-4 py-2 hover:bg-muted transition-colors flex items-center gap-2 text-sm border-t border-border">
                 <LogOut className="w-4 h-4" />
