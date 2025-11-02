@@ -202,9 +202,6 @@ export default function Index() {
             {renderMainContent()}
           </div>
         </main>
-
-        {/* Right Sidebar */}
-        <RightSidebar />
       </div>
 
       {/* Toast Notifications */}
