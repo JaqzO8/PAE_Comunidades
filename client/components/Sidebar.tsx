@@ -115,29 +115,6 @@ export function Sidebar({ userRole, activeSection, onSectionChange }: SidebarPro
           );
         })}
       </nav>
-
-      {/* User Stats Section */}
-      <div className="px-4 py-6 border-t border-border">
-        <div className="bg-gradient-to-br from-primary to-secondary rounded-lg p-4 text-white">
-          <h3 className="font-bold text-sm mb-3">Tu Progreso</h3>
-          <div className="space-y-3">
-            <div>
-              <div className="flex justify-between items-center mb-1">
-                <span className="text-xs">Completado</span>
-                <span className="font-bold text-sm">75%</span>
-              </div>
-              <div className="h-2 bg-white/20 rounded-full overflow-hidden">
-                <div className="h-full w-3/4 bg-accent rounded-full" />
-              </div>
-            </div>
-            <div className="text-xs space-y-1">
-              <div>📚 Grupos: 3</div>
-              <div>💬 Preguntas: 12</div>
-              <div>⭐ Puntos: 850</div>
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 
