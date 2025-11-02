@@ -45,9 +45,20 @@ export default function Index() {
   };
 
   const renderMainContent = () => {
+    // Show group detail if a group is selected
+    if (selectedGroupId) {
+      return (
+        <GroupDetailView
+          groupId={selectedGroupId}
+          onBack={() => setSelectedGroupId(null)}
+          userRole={userRole}
+        />
+      );
+    }
+
     switch (activeSection) {
       case 'groups':
-        return <GroupsView userRole={userRole} />;
+        return <GroupsView userRole={userRole} onGroupSelect={setSelectedGroupId} />;
       case 'forums-public':
         return <PublicForumsView />;
       case 'create-group':
