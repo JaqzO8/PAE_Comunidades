@@ -59,6 +59,8 @@ export default function Index() {
     switch (activeSection) {
       case 'groups':
         return <GroupsView userRole={userRole} onGroupSelect={setSelectedGroupId} />;
+      case 'public-groups':
+        return <PublicGroupsView onGroupSelect={setSelectedGroupId} />;
       case 'forums-public':
         return <PublicForumsView />;
       case 'create-group':
