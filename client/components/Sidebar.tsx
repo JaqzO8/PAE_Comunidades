@@ -9,7 +9,7 @@ import {
   Menu,
   X,
   MessageSquare,
-  Home,
+  Globe,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
