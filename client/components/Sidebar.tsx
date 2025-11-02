@@ -33,10 +33,17 @@ export function Sidebar({ userRole, activeSection, onSectionChange }: SidebarPro
   const navItems: NavItem[] = [
     {
       id: 'groups',
-      label: 'Mis Grupos',
+      label: 'Mis Comunidades',
       icon: Users,
       roles: ['teacher', 'student'],
       badge: 3,
+    },
+    {
+      id: 'public-groups',
+      label: 'Comunidades Públicas',
+      icon: Globe,
+      roles: ['teacher', 'student'],
+      badge: 8,
     },
     {
       id: 'forums-public',
@@ -47,16 +54,9 @@ export function Sidebar({ userRole, activeSection, onSectionChange }: SidebarPro
     },
     {
       id: 'create-group',
-      label: 'Crear Grupo',
+      label: 'Crear Comunidad',
       icon: Plus,
       roles: ['teacher'],
-    },
-    {
-      id: 'invitations',
-      label: 'Invitaciones',
-      icon: Mail,
-      roles: ['student'],
-      badge: 2,
     },
     {
       id: 'resources',
