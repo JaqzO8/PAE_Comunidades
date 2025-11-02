@@ -11,6 +11,7 @@ interface Group {
   visibility: 'public' | 'private';
   isOwner?: boolean;
   coverColor?: string;
+  progress?: number;
 }
 
 interface GroupsViewProps {
