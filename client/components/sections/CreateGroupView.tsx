@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, X } from 'lucide-react';
+import { Plus, X, Upload } from 'lucide-react';
 
 interface CreateGroupViewProps {
   onGroupCreated?: (group: any) => void;
@@ -10,13 +10,16 @@ export function CreateGroupView({ onGroupCreated }: CreateGroupViewProps) {
     name: '',
     description: '',
     subject: '',
+    institution: '',
     visibility: 'private' as 'private' | 'public',
     invitationIds: [] as string[],
     inviteMessage: '',
+    image: null as string | null,
   });
 
   const [currentInviteId, setCurrentInviteId] = useState('');
   const [showInviteForm, setShowInviteForm] = useState(false);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
 
   const handleInputChange = (
     e: React.ChangeEvent<
