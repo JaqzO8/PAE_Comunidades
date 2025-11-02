@@ -13,6 +13,8 @@ interface GroupCardProps {
   isOwner?: boolean;
   onClick?: () => void;
   coverColor?: string;
+  progress?: number;
+  showProgress?: boolean;
 }
 
 export function GroupCard({
@@ -27,7 +29,20 @@ export function GroupCard({
   isOwner = false,
   onClick,
   coverColor = 'primary',
+  progress = 0,
+  showProgress = false,
 }: GroupCardProps) {
+  const getProgressColor = (value: number) => {
+    if (value >= 80) return 'bg-green-500';
+    if (value >= 50) return 'bg-yellow-500';
+    return 'bg-red-500';
+  };
+
+  const getProgressTextColor = (value: number) => {
+    if (value >= 80) return 'text-green-600';
+    if (value >= 50) return 'text-yellow-600';
+    return 'text-red-600';
+  };
   return (
     <div
       onClick={onClick}
