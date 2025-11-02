@@ -73,12 +73,13 @@ export function GroupsView({
         </p>
       </div>
 
-      {/* Groups Grid */}
+      {/* Communities Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {groups.map((group) => (
           <GroupCard
             key={group.id}
             {...group}
+            showProgress={userRole === 'student'}
             onClick={() => onGroupSelect?.(group.id)}
           />
         ))}
@@ -91,12 +92,12 @@ export function GroupsView({
             <span className="text-2xl">👥</span>
           </div>
           <h2 className="text-xl font-bold text-foreground mb-2">
-            Sin grupos aún
+            Sin comunidades aún
           </h2>
           <p className="text-muted-foreground mb-4">
             {userRole === 'teacher'
-              ? 'Crea tu primer grupo de estudio para comenzar'
-              : 'Únete a un grupo público o espera una invitación'}
+              ? 'Crea tu primer comunidad de estudio para comenzar'
+              : 'Únete a una comunidad pública o espera una invitación'}
           </p>
         </div>
       )}
