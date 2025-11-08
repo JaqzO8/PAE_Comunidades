@@ -6,7 +6,7 @@ import { PublicGroupsView } from "@/components/sections/PublicGroupsView";
 import { PublicForumsView } from "@/components/sections/PublicForumsView";
 import { CreateGroupView } from "@/components/sections/CreateGroupView";
 import { GroupDetailView } from "@/components/sections/GroupDetailView";
-import { Users, AlertCircle, FileText, BarChart3 } from "lucide-react";
+import { Users, AlertCircle, FileText } from "lucide-react";
 
 interface ToastNotification {
   id: string;
