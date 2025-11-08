@@ -391,6 +391,15 @@ export function GroupDetailView({
             </div>
           </div>
         )}
+
+        {/* Analytics Tab */}
+        {activeTab === "analytics" && (
+          <CommunityAnalyticsView
+            communityId={groupId}
+            communityName="Algebra Avanzado II"
+            userRole={userRole}
+          />
+        )}
       </div>
     </div>
   );
