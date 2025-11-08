@@ -10,8 +10,10 @@ import {
   Award,
   Download,
   Share2,
+  BarChart3,
 } from "lucide-react";
 import { ForumCard } from "../ForumCard";
+import { CommunityAnalyticsView } from "./CommunityAnalyticsView";
 
 interface GroupDetailViewProps {
   groupId?: string;
@@ -19,7 +21,7 @@ interface GroupDetailViewProps {
   userRole?: "teacher" | "student";
 }
 
-type TabType = "chat" | "files" | "forums" | "challenges";
+type TabType = "chat" | "files" | "forums" | "challenges" | "analytics";
 
 export function GroupDetailView({
   groupId = "1",
