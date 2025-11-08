@@ -129,54 +129,6 @@ export default function Index() {
             </div>
           </div>
         );
-      case "analytics":
-        return userRole === "teacher" ? (
-          <div className="space-y-6">
-            <div>
-              <h1 className="text-3xl font-bold text-foreground mb-2">
-                Analíticas
-              </h1>
-              <p className="text-muted-foreground">
-                Visualiza el rendimiento de tus grupos
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                { label: "Grupos Activos", value: "3", change: "+1" },
-                { label: "Estudiantes Total", value: "73", change: "+12" },
-                { label: "Documentos", value: "39", change: "+8" },
-                { label: "Preguntas Respondidas", value: "156", change: "+42" },
-              ].map((stat, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white rounded-lg border border-border p-6"
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-sm font-bold text-muted-foreground">
-                      {stat.label}
-                    </h3>
-                    <BarChart3 className="w-5 h-5 text-accent" />
-                  </div>
-                  <div className="flex items-end gap-2">
-                    <span className="text-3xl font-bold text-foreground">
-                      {stat.value}
-                    </span>
-                    <span className="text-sm text-green-600 font-bold mb-1">
-                      {stat.change}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ) : (
-          <div className="text-center py-12">
-            <AlertCircle className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-            <p className="text-foreground font-bold text-lg">
-              Solo los profesores tienen acceso a analíticas
-            </p>
-          </div>
-        );
       default:
         return null;
     }

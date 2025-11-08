@@ -5,7 +5,6 @@ import {
   Plus,
   Mail,
   FileText,
-  BarChart3,
   Menu,
   X,
   MessageSquare,
@@ -67,12 +66,6 @@ export function Sidebar({
       label: "Recursos",
       icon: FileText,
       roles: ["teacher", "student"],
-    },
-    {
-      id: "analytics",
-      label: "Analíticas",
-      icon: BarChart3,
-      roles: ["teacher"],
     },
   ];
 
