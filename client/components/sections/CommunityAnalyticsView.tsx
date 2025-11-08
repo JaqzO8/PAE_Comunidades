@@ -103,8 +103,14 @@ export function CommunityAnalyticsView({
   // Calculate community totals
   const totalStudents = members.length;
   const activeStudents = members.filter((m) => m.isActive).length;
-  const totalDocuments = members.reduce((sum, m) => sum + m.documentsUploaded, 0);
-  const totalQuestions = members.reduce((sum, m) => sum + m.questionsAnswered, 0);
+  const totalDocuments = members.reduce(
+    (sum, m) => sum + m.documentsUploaded,
+    0,
+  );
+  const totalQuestions = members.reduce(
+    (sum, m) => sum + m.questionsAnswered,
+    0,
+  );
 
   const handleExpelMember = (memberId: string) => {
     console.log(`Expelling member ${memberId}`);
@@ -155,7 +161,8 @@ export function CommunityAnalyticsView({
             {activeStudents}
           </div>
           <p className="text-xs text-muted-foreground mt-1">
-            {((activeStudents / totalStudents) * 100).toFixed(0)}% de participación
+            {((activeStudents / totalStudents) * 100).toFixed(0)}% de
+            participación
           </p>
         </div>
 
@@ -200,7 +207,7 @@ export function CommunityAnalyticsView({
                 className="p-4 cursor-pointer"
                 onClick={() =>
                   setExpandedMember(
-                    expandedMember === member.id ? null : member.id
+                    expandedMember === member.id ? null : member.id,
                   )
                 }
               >
