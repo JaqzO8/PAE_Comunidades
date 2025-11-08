@@ -192,18 +192,20 @@ export function GroupDetailView({
 
       {/* Tabs */}
       <div className="flex gap-2 border-b border-border overflow-x-auto">
-        {(["chat", "files", "forums", "challenges"] as TabType[]).map((tab) => {
+        {(["chat", "files", "forums", "challenges", "analytics"] as TabType[]).map((tab) => {
           const icons = {
             chat: MessageSquare,
             files: FileText,
             forums: MessageSquare,
             challenges: Award,
+            analytics: BarChart3,
           };
           const labels = {
             chat: "Chat",
             files: "Archivos",
             forums: "Foros",
             challenges: "Retos",
+            analytics: "Analíticas",
           };
           const Icon = icons[tab];
 
